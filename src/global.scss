@@ -31,19 +31,6 @@ html {
   --bg: #{$white};
   --text: #{$black};
   scroll-behavior: smooth;
-}
-
-html[data-theme="light"] {
-  --bg: #{$white};
-  --text: #{$black};
-}
-
-html[data-theme="dark"] {
-  --bg: #{$black};
-  --text: #{$white};
-}
-
-html {
   font-family: "Inter", sans-serif;
   line-height: 1.2;
   font-weight: 500;
@@ -65,6 +52,21 @@ html {
   background-color: var(--bg);
   color: var(--text);
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html[data-theme="light"] {
+  --bg: #{$white};
+  --text: #{$black};
+}
+
+html[data-theme="dark"] {
+  --bg: #{$black};
+  --text: #{$white};
+}
+
+html,
+body {
+  overflow: hidden;
 }
 
 // media query

@@ -36,7 +36,13 @@ function Intro({ loading }: IntroProps): JSX.Element {
           animate={{ opacity: loading ? 0 : 1, y: loading ? "10%" : 0 }}
           transition={{ duration: 0.2, delay: 1.8 }}
         />
-        <p>L It's me! :)</p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: loading ? 0 : 1 }}
+          transition={{ duration: 0.2, delay: 1.8 }}
+        >
+          L It's me! :)
+        </motion.p>
       </div>
     </motion.div>
   );

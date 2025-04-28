@@ -9,7 +9,7 @@ import Footer from "./components/Footer/Footer";
 import Skills from "./components/Skills/Skills";
 import Intro from "./components/Intro/Intro";
 import Loading from "./components/Loading/Loading";
-import SmoothScroll from "./components/SmoothScroll";
+import SmoothScroll from "./components/SmoothScroll/SmoothScroll";
 
 const lsTheme = localStorage.getItem("jia-page-theme") as
   | "light"

@@ -9,12 +9,7 @@ export default function SmoothScroll({
   disabled: boolean;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
-  // const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-  // if (isMobile) {
-  //   document.body.style.overflow = "auto";
-  //   return;
-  // }
+  const isMobile = window.innerWidth <= 980;
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -23,6 +18,26 @@ export default function SmoothScroll({
         alwaysShowTracks: false,
         renderByPixels: true,
       });
+
+      if (isMobile) {
+        scrollbar.addListener(() => {
+          const tracks =
+            scrollRef.current?.querySelectorAll(".scrollbar-track");
+          const thumbs =
+            scrollRef.current?.querySelectorAll(".scrollbar-thumb");
+
+          tracks?.forEach((track) => {
+            (track as HTMLElement).style.background = "transparent";
+            (track as HTMLElement).style.width = "4px";
+          });
+
+          thumbs?.forEach((thumb) => {
+            (thumb as HTMLElement).style.width = "2px";
+            (thumb as HTMLElement).style.background =
+              "rgba(150, 150, 150, 0.7)";
+          });
+        });
+      }
 
       return () => {
         scrollbar.destroy();
