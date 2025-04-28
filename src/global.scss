@@ -1,0 +1,89 @@
+@use "modern-normalize/modern-normalize.css";
+@use "./variables.scss" as *;
+
+// reset
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+li,
+a {
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// root setting
+html {
+  --bg: #{$white};
+  --text: #{$black};
+  scroll-behavior: smooth;
+}
+
+html[data-theme="light"] {
+  --bg: #{$white};
+  --text: #{$black};
+}
+
+html[data-theme="dark"] {
+  --bg: #{$black};
+  --text: #{$white};
+}
+
+html {
+  font-family: "Inter", sans-serif;
+  line-height: 1.2;
+  font-weight: 500;
+  font-size: 10px;
+  text-align: center;
+
+  --font-title-s: 40px;
+  --font-title-sm: 50px;
+  --font-title-m: 60px;
+  --font-title-l: 100px;
+  --font-normal: 16px;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color-scheme: light dark;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// media query
+@media screen and (max-width: 980px) {
+  html {
+    --font-title-s: 32px;
+    --font-title-sm: 42px;
+    --font-title-m: 48px;
+    --font-title-l: 78px;
+    --font-normal: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    --font-title-s: 24px;
+    --font-title-sm: 32px;
+    --font-title-m: 32px;
+    --font-title-l: 56px;
+    --font-normal: 14px;
+  }
+}

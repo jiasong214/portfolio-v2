@@ -1,0 +1,40 @@
+.contact {
+  min-height: calc(100vh - 50px); // footer height
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .contactInner {
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: space(2);
+    }
+  }
+
+  .title {
+    font-size: var(--font-normal);
+    font-weight: 600;
+  }
+
+  li {
+    width: fit-content;
+    margin: 0 auto;
+    font-size: var(--font-title-sm);
+    text-decoration: underline;
+    text-decoration-color: rgba(144, 144, 144, 0.2);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+    transition: 0.3s;
+
+    &:hover {
+      transition: 0.3s;
+      text-decoration-color: inherit;
+      text-decoration-thickness: 4px;
+    }
+  }
+}

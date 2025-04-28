@@ -1,0 +1,6 @@
+@function space($val) {
+  @return $val * 8px;
+}
+
+$white: #f8f9fa;
+$black: #353535;

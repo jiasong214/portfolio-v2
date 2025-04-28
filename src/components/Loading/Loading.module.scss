@@ -1,0 +1,8 @@
+.percent {
+  color: var(--text);
+  font-size: var(--font-normal);
+  position: absolute;
+  top: 70vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
