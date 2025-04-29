@@ -13,7 +13,7 @@ function Header({ loading, theme, onUpdateTheme }: HeaderProps) {
       className={styles.header}
       initial={{ opacity: 0 }}
       animate={{ opacity: loading ? 0 : 1 }}
-      transition={{ duration: 0.3, delay: 1.8 }}
+      transition={{ duration: 0.3, delay: 2 }}
     >
       <div className={styles.location}>
         Based in

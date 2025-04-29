@@ -55,10 +55,6 @@ function Experience() {
               modular systems.
             </motion.li>
             <motion.li variants={itemMotionVariant}>
-              Troubleshoot issues by analysing backend logic and data processing
-              flows.
-            </motion.li>
-            <motion.li variants={itemMotionVariant}>
               Gain exposure to AWS for deployment and service integration.
             </motion.li>
           </motion.ul>
@@ -74,8 +70,8 @@ function Experience() {
           </motion.div>
           <motion.ul className={styles.jobSummary}>
             <motion.li variants={itemMotionVariant}>
-              Diagnosed and resolved data issues by analysing tenant data and
-              backend data-processing logic.
+              Troubleshoot issues by analysing backend logic and data processing
+              flows.
             </motion.li>
             <motion.li variants={itemMotionVariant}>
               Implemented a new design system across the app to enhance UI

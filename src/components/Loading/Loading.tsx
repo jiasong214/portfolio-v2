@@ -54,7 +54,7 @@ const Loading = ({
       setTimeout(() => {
         setLoading(false);
         if (rafId.current) cancelAnimationFrame(rafId.current);
-      }, 1500);
+      }, 1800);
     });
 
     return () => {

@@ -12,6 +12,22 @@ export default function SmoothScroll({
   const isMobile = window.innerWidth <= 980;
 
   useEffect(() => {
+    if (!isMobile) return;
+
+    const html = document.documentElement;
+    const body = document.body;
+    const overflowValue = disabled ? "hidden" : "auto";
+
+    html.style.overflowY = overflowValue;
+    body.style.overflowY = overflowValue;
+
+    return () => {
+      html.style.overflowY = "auto";
+      body.style.overflowY = "auto";
+    };
+  }, [disabled, isMobile]);
+
+  useEffect(() => {
     if (scrollRef.current) {
       const scrollbar = Scrollbar.init(scrollRef.current, {
         damping: 0.05,
@@ -19,31 +35,11 @@ export default function SmoothScroll({
         renderByPixels: true,
       });
 
-      if (isMobile) {
-        scrollbar.addListener(() => {
-          const tracks =
-            scrollRef.current?.querySelectorAll(".scrollbar-track");
-          const thumbs =
-            scrollRef.current?.querySelectorAll(".scrollbar-thumb");
-
-          tracks?.forEach((track) => {
-            (track as HTMLElement).style.background = "transparent";
-            (track as HTMLElement).style.width = "4px";
-          });
-
-          thumbs?.forEach((thumb) => {
-            (thumb as HTMLElement).style.width = "2px";
-            (thumb as HTMLElement).style.background =
-              "rgba(150, 150, 150, 0.7)";
-          });
-        });
-      }
-
-      return () => {
-        scrollbar.destroy();
-      };
+      return () => scrollbar.destroy();
     }
   }, []);
+
+  if (isMobile) return children;
 
   return (
     <div
