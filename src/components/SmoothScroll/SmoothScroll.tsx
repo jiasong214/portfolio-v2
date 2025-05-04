@@ -9,7 +9,7 @@ export default function SmoothScroll({
   disabled: boolean;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const isMobile = window.innerWidth <= 980;
+  const isMobile = window.innerWidth <= 480;
 
   useEffect(() => {
     if (!isMobile) return;

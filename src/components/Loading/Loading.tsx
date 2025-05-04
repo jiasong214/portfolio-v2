@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef, ReactNode } from "react";
 import styles from "./Loading.module.scss";
 import { motion } from "framer-motion";
 
-const MIN_LOADING_TIME = 1000;
+const START_BUFFER_TIME = 500;
+const END_BUFFER_TIME = 1000;
 
 interface LoadingProps {
   children: ReactNode;
@@ -32,7 +33,7 @@ const Loading = ({
     );
 
     const minTimePromise = new Promise<void>((resolve) =>
-      setTimeout(resolve, MIN_LOADING_TIME)
+      setTimeout(resolve, START_BUFFER_TIME)
     );
 
     await Promise.all([imageLoadPromise, minTimePromise]);
@@ -42,8 +43,17 @@ const Loading = ({
     const animate = () => {
       setProgress((prev) => {
         const diff = targetProgress.current - prev;
-        if (Math.abs(diff) < 0.1) return targetProgress.current;
-        return prev + diff * 0.05; // soft
+        if (Math.abs(diff) < 0.1) {
+          if (
+            Math.floor(targetProgress.current) === 100 &&
+            Math.floor(prev) === 100
+          ) {
+            setTimeout((): void => setLoading(false), END_BUFFER_TIME);
+            if (rafId.current) cancelAnimationFrame(rafId.current);
+          }
+          return targetProgress.current;
+        }
+        return prev + diff * 0.05;
       });
       rafId.current = requestAnimationFrame(animate);
     };
@@ -51,10 +61,6 @@ const Loading = ({
 
     loadImages().then(() => {
       targetProgress.current = 100;
-      setTimeout(() => {
-        setLoading(false);
-        if (rafId.current) cancelAnimationFrame(rafId.current);
-      }, 1800);
     });
 
     return () => {

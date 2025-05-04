@@ -22,7 +22,7 @@ function Header({ loading, theme, onUpdateTheme }: HeaderProps) {
       </div>
 
       <div className={styles.nightModeToggle}>
-        <p>Dark mode</p>
+        <p>Dark</p>
         <div
           className={`${styles.toggle} ${theme === "dark" ? styles.on : ""}`}
           onClick={() => onUpdateTheme(theme === "light" ? "dark" : "light")}
