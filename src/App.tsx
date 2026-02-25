@@ -9,7 +9,6 @@ import Footer from "./components/Footer/Footer";
 import Skills from "./components/Skills/Skills";
 import Intro from "./components/Intro/Intro";
 import Loading from "./components/Loading/Loading";
-import SmoothScroll from "./components/SmoothScroll/SmoothScroll";
 
 const lsTheme = localStorage.getItem("jia-page-theme") as
   | "light"
@@ -39,29 +38,24 @@ function App() {
   };
 
   return (
-    <Loading loading={loading} setLoading={setLoading}>
-      <SmoothScroll disabled={loading}>
-        <main className="root">
-          <Header
-            loading={loading}
-            theme={currentTheme}
-            onUpdateTheme={handleUpdateTheme}
-          />
-          <Intro loading={loading} />
-          <About />
-          <p className="subText">
-            Over the past three years, I have worked with:
-          </p>
-          <Skills />
-          <p className="subText">
-            Here’s where I've applied and expanded my skills:
-          </p>
-          <Experience />
-          <Contact />
-          <Footer />
-        </main>
-      </SmoothScroll>
-    </Loading>
+    <main className={loading ? "scroll-lock" : "root"}>
+      <Loading loading={loading} setLoading={setLoading} />
+      <Header
+        loading={loading}
+        theme={currentTheme}
+        onUpdateTheme={handleUpdateTheme}
+      />
+      <Intro loading={loading} />
+      <About />
+      <p className="subText">Over the past three years, I have worked with:</p>
+      <Skills />
+      <p className="subText">
+        Here’s where I've applied and expanded my skills:
+      </p>
+      <Experience />
+      <Contact />
+      <Footer />
+    </main>
   );
 }
 

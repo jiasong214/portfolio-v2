@@ -6,6 +6,11 @@
   position: relative;
 }
 
+.scroll-lock {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .subText {
   font-size: var(--font-normal);
   font-weight: 600;

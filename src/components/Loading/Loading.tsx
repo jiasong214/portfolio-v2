@@ -5,39 +5,34 @@ import { motion } from "framer-motion";
 const START_BUFFER_TIME = 500;
 const END_BUFFER_TIME = 1000;
 
+const loadImages = async () => {
+  const images = Array.from(document.images);
+  const imageLoadPromise = Promise.all(
+    images.map((img) => {
+      if (img.complete) return Promise.resolve();
+      return new Promise<void>((resolve) => {
+        img.onload = () => resolve();
+        img.onerror = () => resolve();
+      });
+    }),
+  );
+
+  const minTimePromise = new Promise<void>((resolve) =>
+    setTimeout(resolve, START_BUFFER_TIME),
+  );
+
+  await Promise.all([imageLoadPromise, minTimePromise]);
+};
+
 interface LoadingProps {
-  children: ReactNode;
   loading: boolean;
   setLoading: (loading: boolean) => void;
 }
 
-const Loading = ({
-  children,
-  loading,
-  setLoading,
-}: LoadingProps): React.ReactElement => {
+const Loading = ({ loading, setLoading }: LoadingProps): React.ReactElement => {
   const [progress, setProgress] = useState(0);
   const targetProgress = useRef(0);
   const rafId = useRef<number>(0);
-
-  const loadImages = async () => {
-    const images = Array.from(document.images);
-    const imageLoadPromise = Promise.all(
-      images.map((img) => {
-        if (img.complete) return Promise.resolve();
-        return new Promise<void>((resolve) => {
-          img.onload = () => resolve();
-          img.onerror = () => resolve();
-        });
-      })
-    );
-
-    const minTimePromise = new Promise<void>((resolve) =>
-      setTimeout(resolve, START_BUFFER_TIME)
-    );
-
-    await Promise.all([imageLoadPromise, minTimePromise]);
-  };
 
   useEffect(() => {
     const animate = () => {
@@ -69,16 +64,13 @@ const Loading = ({
   }, []);
 
   return (
-    <>
-      <motion.p
-        className={styles.percent}
-        animate={{ opacity: loading ? 1 : 0 }}
-        transition={{ duration: 0.5, delay: 1 }}
-      >
-        {Math.floor(progress)} / 100
-      </motion.p>
-      {children}
-    </>
+    <motion.p
+      className={styles.percent}
+      animate={{ opacity: loading ? 1 : 0 }}
+      transition={{ duration: 0.5, delay: 1 }}
+    >
+      {Math.floor(progress)} / 100
+    </motion.p>
   );
 };
 
