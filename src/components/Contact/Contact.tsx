@@ -1,22 +1,16 @@
 import React, { useState } from "react";
 import styles from "./Contact.module.scss";
-import { motion } from "framer-motion";
 
 function Contact() {
-  const contactItem = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 1 } },
-  };
-
   return (
     <div className={styles.contact}>
-      <motion.div className={styles.contactInner}>
+      <div className={styles.contactInner}>
         <div>
-          <motion.h2 className={styles.title} variants={contactItem}>
+          <h2 className={styles.title}>
             Let's connect!
-          </motion.h2>
-          <motion.ul>
-            <motion.li variants={contactItem}>
+          </h2>
+          <ul>
+            <li>
               <a
                 href="mailto:jiasong214@gmail.com"
                 target="_blank"
@@ -24,8 +18,8 @@ function Contact() {
               >
                 jiasong214@gmail.com
               </a>
-            </motion.li>
-            <motion.li variants={contactItem}>
+            </li>
+            <li>
               <a
                 href="https://www.linkedin.com/in/jiasong214/"
                 target="_blank"
@@ -33,16 +27,16 @@ function Contact() {
               >
                 LinkedIn
               </a>
-            </motion.li>
-          </motion.ul>
+            </li>
+          </ul>
         </div>
 
-        <div>
-          <motion.h2 className={styles.title} variants={contactItem}>
+        <div className={styles.subLinkContainer}>
+          <h2 className={styles.title}>
             If you'd like to see more,
-          </motion.h2>
-          <motion.ul>
-            <motion.li variants={contactItem}>
+          </h2>
+          <ul>
+            <li>
               <a
                 href="https://jiasong214.github.io/portfolio/"
                 target="_blank"
@@ -50,8 +44,8 @@ function Contact() {
               >
                 Portfolio (2022)
               </a>
-            </motion.li>
-            <motion.li variants={contactItem}>
+            </li>
+            <li>
               <a
                 href="https://github.com/jiasong214"
                 target="_blank"
@@ -59,10 +53,10 @@ function Contact() {
               >
                 Github
               </a>
-            </motion.li>
-          </motion.ul>
+            </li>
+          </ul>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

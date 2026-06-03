@@ -2,6 +2,8 @@ import React, { JSX } from "react";
 import styles from "./About.module.scss";
 import { motion } from "framer-motion";
 
+const yearsOfExperience = new Date().getFullYear() - 2022;
+
 function About(): JSX.Element {
   const introductionItem = {
     hidden: { opacity: 0 },
@@ -25,8 +27,8 @@ function About(): JSX.Element {
       }}
     >
       <motion.p className={styles.introduction} variants={introductionItem}>
-        I'm a frontend-focused full stack engineer with over 3 years of
-        experience building web app using React, TypeScript, and Node.js.
+        I'm a frontend-focused full stack engineer with over {yearsOfExperience} years of
+        experience building web apps using React, TypeScript, and Node.js.
       </motion.p>
       <motion.p className={styles.introduction} variants={introductionItem}>
         I love crafting clean, reusable code and building user-friendly

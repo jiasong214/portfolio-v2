@@ -21,6 +21,19 @@
     font-weight: 600;
   }
 
+  .subLinkContainer {
+    opacity: 0.5;
+
+    li {
+      font-size: 32px;
+      text-underline-offset: 3px;
+
+      &:hover {
+        text-decoration-thickness: 3px;
+      }
+    }
+  }
+
   li {
     width: fit-content;
     margin: 0 auto;

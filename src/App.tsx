@@ -47,7 +47,7 @@ function App() {
       />
       <Intro loading={loading} />
       <About />
-      <p className="subText">Over the past three years, I have worked with:</p>
+      <p className="subText">Over the past few years, I have worked with:</p>
       <Skills />
       <p className="subText">
         Here’s where I've applied and expanded my skills:

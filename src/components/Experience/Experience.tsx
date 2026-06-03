@@ -1,127 +1,93 @@
 import React, { useState } from "react";
 import styles from "./Experience.module.scss";
-import { motion } from "framer-motion";
 
 function Experience() {
-  const itemMotionVariant = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.5 } },
-  };
 
   return (
-    <motion.div
+    <div
       className={styles.experience}
-      initial="hidden"
-      whileInView="visible"
-      transition={{ staggerChildren: 0.05 }}
-      viewport={{ once: true, amount: 0.3 }}
-      variants={{
-        hidden: {},
-        visible: {},
-      }}
     >
-      <motion.article>
-        <motion.h4 className={styles.companyTitle} variants={itemMotionVariant}>
+      <article>
+        <h4 className={styles.companyTitle}>
           Style Arcade
-          <motion.div
-            className={styles.divider}
-            transition={{ duration: 0.5 }}
-            variants={{
-              hidden: { width: "0%" },
-              visible: { width: "100%" },
-            }}
-          />
-        </motion.h4>
-        <motion.div className={styles.positionBlock}>
-          <motion.div className={styles.leftContainer}>
-            <motion.h3 className={styles.position} variants={itemMotionVariant}>
-              Software engineer
-            </motion.h3>
-            <motion.p className={styles.subInfo} variants={itemMotionVariant}>
-              Jul 2023 - Present
-            </motion.p>
-          </motion.div>
-          <motion.ul className={styles.jobSummary}>
-            <motion.li variants={itemMotionVariant}>
+        </h4>
+        <div className={styles.positionBlock}>
+          <h3 className={styles.position}>
+            Software engineer
+          </h3>
+          <p className={styles.subInfo}>
+            Jul 2023 - Present
+          </p>
+          <ul className={styles.jobSummary}>
+            <li>
               Act as a core frontend engineer, building and maintaining product
               features using React, Redux, and TypeScript.
-            </motion.li>
-            <motion.li variants={itemMotionVariant}>
+            </li>
+            <li>
               Contribute to migrating state management from MobX to Redux.
-            </motion.li>
-            <motion.li variants={itemMotionVariant}>
+            </li>
+            <li>
               Work across a wide range of frontend architectures — from legacy
               class components and container/presenter patterns to composable,
               modular systems.
-            </motion.li>
-            <motion.li variants={itemMotionVariant}>
+            </li>
+            <li>
               Gain exposure to AWS for deployment and service integration.
-            </motion.li>
-          </motion.ul>
-        </motion.div>
-        <motion.div className={styles.positionBlock}>
-          <motion.div className={styles.leftContainer}>
-            <motion.h3 className={styles.position} variants={itemMotionVariant}>
-              Junior software engineer
-            </motion.h3>
-            <motion.p className={styles.subInfo} variants={itemMotionVariant}>
-              Apr 2022 - Jul 2023
-            </motion.p>
-          </motion.div>
-          <motion.ul className={styles.jobSummary}>
-            <motion.li variants={itemMotionVariant}>
+            </li>
+        </ul>
+        </div>
+        <div className={styles.divider} />
+        <div className={styles.positionBlock}>
+          <h3 className={styles.position}>
+            Junior software engineer
+          </h3>
+          <p className={styles.subInfo}>
+            Apr 2022 - Jul 2023
+          </p>
+          <ul className={styles.jobSummary}>
+            <li>
               Troubleshoot issues by analysing backend logic and data processing
               flows.
-            </motion.li>
-            <motion.li variants={itemMotionVariant}>
+            </li>
+            <li>
               Implemented a new design system across the app to enhance UI
               consistency and user experience.
-            </motion.li>
-          </motion.ul>
-        </motion.div>
-      </motion.article>
-      <motion.article>
-        <motion.h4 className={styles.companyTitle} variants={itemMotionVariant}>
+            </li>
+          </ul>
+        </div>
+      </article>
+      <article>
+        <h4 className={styles.companyTitle}>
           Ridly Rubbish Removal
-          <motion.div
-            className={styles.divider}
-            transition={{ duration: 1, delay: 0.5 }}
-            variants={{
-              hidden: { width: "0%" },
-              visible: { width: "100%" },
-            }}
-          />
-        </motion.h4>
-        <motion.div className={styles.positionBlock}>
-          <motion.div className={styles.leftContainer}>
-            <motion.h3 className={styles.position} variants={itemMotionVariant}>
+        </h4>
+        <div className={styles.positionBlock}>
+            <h3 className={styles.position}>
               Frontend developer
-            </motion.h3>
-            <motion.p className={styles.subInfo} variants={itemMotionVariant}>
+            </h3>
+            <p className={styles.subInfo}>
               Dec 2022 - Jan 2023 | Contract
-            </motion.p>
-          </motion.div>
+            </p>
 
-          <motion.ul className={styles.jobSummary}>
-            <motion.li variants={itemMotionVariant}>
+          <ul className={styles.jobSummary}>
+            <li>
               Collaborated on a team of three engineers to rebuild a legacy
               CMS-based website using modern web technologies.
-            </motion.li>
-            <motion.li variants={itemMotionVariant}>
+            </li>
+            <li>
               Built all frontend components using React, TypeScript, and Remix.
-            </motion.li>
-            <motion.li variants={itemMotionVariant}>
+            </li>
+            <li>
               Precisely replicated the existing UI with SASS, maintaining full
               design and animation fidelity.
-            </motion.li>
-            <motion.li variants={itemMotionVariant}>
+            </li>
+            <li>
               Implemented dynamic interactions and reusable logic through custom
               React hooks.
-            </motion.li>
-          </motion.ul>
-        </motion.div>
-      </motion.article>
-    </motion.div>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </div>
   );
 }
 
